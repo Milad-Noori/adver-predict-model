@@ -27,6 +27,8 @@ df['sales'] = df['sales'].astype(int)
 # plt.show()
 # sns.boxplot(data=df,x='radio')
 # plt.show()
+# sns.boxplot(data=df,x='sales')
+# plt.show()
 
 
 #IQR
@@ -39,7 +41,21 @@ IQR = Q3 -  Q1
 lower_bound = Q1 - 1.5 * IQR
 upper_bound = Q3 + 1.5 * IQR
 
+Q1 = df['sales'].quantile(0.25)
+
+Q3 = df['sales'].quantile(0.75)
+
+IQR = Q3 -  Q1
+
+lower_bound1 = Q1 - 1.5 * IQR
+upper_bound1= Q3 + 1.5 * IQR
+
 df=df[(df['newspaper'] >= lower_bound ) & (df['newspaper']<= upper_bound )]
+
+df=df[(df['sales'] >= lower_bound1) & (df['sales']<= upper_bound1)]
+
+# sns.boxplot(data=df,x='sales')
+# plt.show()
 
 # sns.boxplot(data=df,x='newspaper')
 # plt.show()
@@ -83,14 +99,29 @@ r2score= r2_score(Y_test,y_pred)
 # print(mse)
 # print(rmse)
 # print(r2score)
-
-
+#
+#
 y_residual= Y_test - y_pred
-print(y_residual)
+# print(y_residual)
 
 
-sns.scatterplot(x=Y_test , y=y_residual)
-plt.axhline(y= 0 , color = 'r' , linestyle ='--' )
-plt.axhline(y= 2 , color = 'r' , linestyle ='--' )
-plt.axhline(y= -2 , color = 'r' , linestyle ='--' )
-plt.show()
+# sns.scatterplot(x=Y_test , y=y_residual)
+# plt.axhline(y= 0 , color = 'r' , linestyle ='--' )
+# plt.axhline(y= 2 , color = 'r' , linestyle ='--' )
+# plt.axhline(y= -2 , color = 'r' , linestyle ='--' )
+# plt.show()
+
+
+
+final_model = LinearRegression()
+final_model.fit(X.values,Y)
+# print(model.coef_)
+
+new_data = [[35,25,41]]
+
+print(final_model.predict(new_data))
+
+
+
+
+
