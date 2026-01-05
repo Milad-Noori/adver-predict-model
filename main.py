@@ -40,11 +40,20 @@ upper_bound = Q3 + 1.5 * IQR
 
 df=df[(df['newspaper'] >= lower_bound ) & (df['newspaper']<= upper_bound )]
 
-sns.boxplot(data=df,x='newspaper')
-plt.show()
+# sns.boxplot(data=df,x='newspaper')
+# plt.show()
 
 X=df.drop('sales',axis=1)
 Y=df['sales']
+#
+# sns.pairplot(df)
+# plt.show()
+
+df['total'] = df['TV']+df['radio']+df['newspaper']
+
+
+# sns.pairplot(df)
+# plt.show()
 
 ss=StandardScaler()
 X_rescale=ss.fit_transform(X)
@@ -66,7 +75,7 @@ rmse=np.sqrt(mse)
 r2score= r2_score(Y_test,y_pred)
 
 
-print(mse)
-print(mse)
-print(rmse)
-print(r2score)
+# print(mse)
+# print(mse)
+# print(rmse)
+# print(r2score)
