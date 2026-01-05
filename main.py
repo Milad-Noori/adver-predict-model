@@ -5,11 +5,43 @@ from sklearn.linear_model import  LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
+import seaborn as sns
+from soupsieve.util import lower
+
 data=pd.read_csv("Advertising.csv", usecols=[ 'TV','radio','newspaper','sales'])
 df=pd.DataFrame(data)
 # print(df)
 
 
+df['TV'] = df['TV'].astype(int)
+df['newspaper'] = df['newspaper'].astype(int)
+df['radio'] = df['radio'].astype(int)
+df['sales'] = df['sales'].astype(int)
+
+# print(df.dtypes)
+
+# sns.boxplot(data=df,x='TV')
+# plt.show()
+# sns.boxplot(data=df,x='newspaper')
+# plt.show()
+# sns.boxplot(data=df,x='radio')
+# plt.show()
+
+
+#IQR
+Q1 = df['newspaper'].quantile(0.25)
+
+Q3 = df['newspaper'].quantile(0.75)
+
+IQR = Q3 -  Q1
+
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+df=df[(df['newspaper'] >= lower_bound ) & (df['newspaper']<= upper_bound )]
+
+sns.boxplot(data=df,x='newspaper')
+plt.show()
 
 X=df.drop('sales',axis=1)
 Y=df['sales']
