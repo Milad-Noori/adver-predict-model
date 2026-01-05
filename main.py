@@ -66,7 +66,7 @@ Y=df['sales']
 # sns.pairplot(df)
 # plt.show()
 
-df['total'] = df['TV']+df['radio']+df['newspaper']
+# df['total'] = df['TV']+df['radio']+df['newspaper']
 
 
 # sns.pairplot(df)
@@ -122,6 +122,12 @@ new_data = [[35,25,41]]
 print(final_model.predict(new_data))
 
 
+###############################################################   Diployment   ##############################################################
+from joblib import dump,load
+
+
+dump(final_model,'final_model.pkl')
+load_model = load('final_model.pkl')
 
 
 
