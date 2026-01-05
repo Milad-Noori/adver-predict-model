@@ -1,9 +1,10 @@
 import  pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.lines import lineStyles
 from sklearn.linear_model import  LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 import seaborn as sns
 from soupsieve.util import lower
@@ -59,7 +60,10 @@ ss=StandardScaler()
 X_rescale=ss.fit_transform(X)
 
 
-X_train , X_test, Y_train , Y_test = train_test_split(X_rescale,Y , test_size=0.15 , random_state=42)
+# mms=MinMaxScaler()
+# X_mms_scale=mms.fit_transform(X)
+
+X_train , X_test, Y_train , Y_test = train_test_split(X,Y , test_size=0.15 , random_state=42)
 
 
 model=LinearRegression()
@@ -79,3 +83,14 @@ r2score= r2_score(Y_test,y_pred)
 # print(mse)
 # print(rmse)
 # print(r2score)
+
+
+y_residual= Y_test - y_pred
+print(y_residual)
+
+
+sns.scatterplot(x=Y_test , y=y_residual)
+plt.axhline(y= 0 , color = 'r' , linestyle ='--' )
+plt.axhline(y= 2 , color = 'r' , linestyle ='--' )
+plt.axhline(y= -2 , color = 'r' , linestyle ='--' )
+plt.show()
