@@ -172,9 +172,6 @@ my_form.bind('<Return>', predict_sales)
 my_form.mainloop()
 
 
-new_data= [[15,45,160]]
-# dump(final_model,'final_model.pkl')
-load_model = load('final_model.pkl')
-print(load_model.predict(new_data))
+
 
 
