@@ -32,15 +32,8 @@
 
 
 #IQR
-# Q1 = df['newspaper'].quantile(0.25)
-#
-# Q3 = df['newspaper'].quantile(0.75)
-#
-# IQR = Q3 -  Q1
-#
-# lower_bound = Q1 - 1.5 * IQR
-# upper_bound = Q3 + 1.5 * IQR
-#
+
+
 # Q1 = df['sales'].quantile(0.25)
 #
 # Q3 = df['sales'].quantile(0.75)
@@ -88,6 +81,7 @@
 
 # print(y_pred)
 
+
 from sklearn import metrics
 # mse  = mean_squared_error(Y_test ,y_pred)
 # mae = mean_absolute_error(Y_test ,y_pred)
@@ -121,7 +115,8 @@ from sklearn import metrics
 #
 # print(final_model.predict(new_data))
 
-
+# test_residual = y_test - y_hat
+# print(test_residual)
 ###############################################################   Diployment   ##############################################################
 from joblib import dump,load
 
