@@ -1,82 +1,60 @@
-# :car: Car Price Prediction (Linear Regression)
+# :bar_chart: Ad Campaign ROI Prediction Model
 
-A machine learning project for predicting car prices using Linear Regression.  
-Built with Python and Scikit-learn, trained on a Kaggle dataset.
+## :pushpin: Overview
+This project is a Machine Learning model built with Python to predict which advertising model is more cost-effective based on historical campaign data.  
+The goal is to help businesses optimize their advertising budget and maximize ROI (Return on Investment).
 
 ---
 
 ## :rocket: Features
-
-- :bar_chart: Data preprocessing & cleaning  
-- :mag: Feature engineering  
-- 🤖 Price prediction using Linear Regression  
-- :chart_with_upwards_trend: Model evaluation (MAE, RMSE)  
-- :zap: Simple and interpretable model  
+- Data preprocessing and cleaning
+- Feature engineering for ad performance metrics
+- Machine Learning model training and evaluation
+- Prediction of cost-effective ad strategies
+- Visualization of results and insights
 
 ---
 
 ## 🧠 Tech Stack
-
-- Python  
-- Scikit-learn  
-- Pandas / NumPy  
-- Matplotlib / Seaborn  
+- Python :snake:
+- Pandas / NumPy
+- Scikit-learn
+- Matplotlib / Seaborn
+- Jupyter Notebook (optional)
 
 ---
 
-## :open_file_folder: Project Structure
-.
-├── data/              # Dataset
-├── notebooks/         # EDA & experiments
-├── model/             # Saved model
-├── main.py            # Main script
-├── requirements.txt
-└── README.md
+## :open_file_folder: Dataset
+The dataset used in this project contains:
+- Ad type (e.g. Facebook, Google, Instagram, etc.)
+- Cost per campaign
+- Click-through rate (CTR)
+- Conversion rate
+- Revenue generated
 
-## :link: Clone the Repository
+> Source: [Kaggle / Custom Dataset / etc.]
 
-```bash
-git clone https://github.com/Milad-Noori/car_prediction.git
-cd YOUR_REPO
-```
+---
 
+## ⚙ Model Workflow
+1. Data Collection  
+2. Data Cleaning  
+3. Feature Engineering  
+4. Model Training (e.g. Linear Regression / Random Forest)  
+5. Evaluation (MAE, MSE, R² Score)  
+6. Prediction & Insight Generation  
 
-## Run Locally 
-```bash
-pip install -r requirements.txt
-python main.py
-```
+---
 
+## :chart_with_upwards_trend: Results
+- Model Accuracy: [e.g. 87% R² Score]
+- Best performing ad model: [e.g. Google Ads]
+- Key insight: [short insight about what affects ROI most]
 
-## Author
- Author
-	•	Milad-Noori
-	•	GitHub: https://github.com/Milad-Noori
+---
 
-
-_____
-
- Model Details
-	•	Algorithm: Linear Regression
-	•	Library: Scikit-learn
-	•	Dataset: Kaggle Car Price Dataset
-	•	Metrics:
-	•	MAE (Mean Absolute Error)
-	•	RMSE (Root Mean Squared Error)
-
-⸻
-
-:bar_chart: Example Workflow
-	1.	Load dataset
-	2.	Clean missing values
-	3.	Encode categorical features
-	4.	Train Linear Regression model
-	5.	Evaluate performance
-
-⸻
-
-:rocket: Future Improvements
-	•	Try advanced models (Random Forest, XGBoost)
-	•	Hyperparameter tuning
-	•	Deploy as API (FastAPI)
-
+## :bar_chart: Example Prediction
+```python
+input_data = [[budget, ctr, conversion_rate]]
+prediction = model.predict(input_data)
+print("Best Ad Strategy:", prediction)
