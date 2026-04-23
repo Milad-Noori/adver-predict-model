@@ -24,17 +24,6 @@ The goal is to help businesses optimize their advertising budget and maximize RO
 
 ---
 
-## :open_file_folder: Dataset
-The dataset used in this project contains:
-- Ad type (e.g. Facebook, Google, Instagram, etc.)
-- Cost per campaign
-- Click-through rate (CTR)
-- Conversion rate
-- Revenue generated
-
-> Source: [Kaggle / Custom Dataset / etc.]
-
----
 
 ## ⚙ Model Workflow
 1. Data Collection  
